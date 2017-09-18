@@ -3,6 +3,6 @@
 Designed for the Electrotechnische Vereeniging.
 
 ## TODO
-- Verify netpresenter URL
+- ~~Verify netpresenter URL~~
 - Change settings
 - Automatically update

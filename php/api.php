@@ -1,7 +1,11 @@
 <?php
 
 if(isset($_GET['url'])) {
-  /* TODO: Verify URL */
+  if(!preg_match('/http:\/\/netpresenter\.tudelft\.nl\/netpresenter\/published/', $_GET['url'])) {
+      $response = ['err' => 'Not a netpresenter URL'];
+      echo json_encode($response);
+      die();
+  }
   $matches = [];
   $html = file_get_contents($_GET['url']);
   preg_match_all("/>(\S+\.jpg)</", $html, $matches);
