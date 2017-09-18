@@ -1,6 +1,7 @@
 <?php
 
 if(isset($_GET['url'])) {
+  /* TODO: Verify URL */
   $matches = [];
   $html = file_get_contents($_GET['url']);
   preg_match_all("/>(\S+\.jpg)</", $html, $matches);
