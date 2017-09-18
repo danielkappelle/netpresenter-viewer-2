@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="netpresenter">
+<head>
+  <title>Netpresenter</title>
+  <link rel="stylesheet" href="css/netpresenter.css">
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="js/controller.js"></script>
+</head>
+<body>
+  <div ng-controller="NetpresenterController">
+    <div ng-repeat="slide in slides track by $index">
+      <div class="fullscreen-img" ng-show="currentSlide == $index">
+        <img src="{{url}}{{slide}}"></img>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
