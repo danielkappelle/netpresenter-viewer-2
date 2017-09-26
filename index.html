@@ -10,7 +10,7 @@
   <div ng-controller="NetpresenterController">
     <div ng-repeat="slide in slides track by $index">
       <div class="fullscreen-img" ng-show="currentSlide == $index">
-        <img src="{{url}}{{slide}}"></img>
+        <img src="{{url}}{{slide.href}}"></img>
       </div>
     </div>
   </div>

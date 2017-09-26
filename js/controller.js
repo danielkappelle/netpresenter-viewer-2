@@ -16,7 +16,7 @@ angular.module('netpresenter', [])
 
     var startShow = function() {
       $scope.currentSlide = ($scope.currentSlide + 1) % n_slides;
-      $timeout(startShow, $scope.timeOut);
+      $timeout(startShow, $scope.slides[$scope.currentSlide].interval * 1000);
     }
 
   });
