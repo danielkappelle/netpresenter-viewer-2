@@ -6,7 +6,6 @@ angular.module('netpresenter', [])
     $scope.timeOut = 1 * 60 * 60 * 1000; // 1 hour intervals
 
     var update = function() {
-      console.log("Begin update");
       $http.get('php/api.php', {params: {url: $scope.url}})
         .then(function(response) {
           $scope.slides = response.data;
@@ -25,7 +24,7 @@ angular.module('netpresenter', [])
 
     var startShow = function() {
       $scope.currentSlide = ($scope.currentSlide + 1) % n_slides;
-      slide_timer = $timeout(startShow, 2000);
+      slide_timer = $timeout(startShow, $scope.slides[$scope.currentSlide].interval * 1000);
     };
 
     update();
