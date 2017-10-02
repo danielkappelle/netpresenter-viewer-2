@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/danielkappelle/netpresenter-viewer-2#readme",
   "dependencies": {
-    "express": "^4.15.5"
+    "express": "^4.15.5",
+    "request": "^2.83.0"
   }
 }
