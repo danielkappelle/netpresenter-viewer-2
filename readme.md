@@ -16,3 +16,4 @@ Designed for the Electrotechnische Vereeniging.
 - ~~Automatically update~~
 - ~~Change to Node.js~~
 - Setup GRUNT
+- Accept YouTube videos
