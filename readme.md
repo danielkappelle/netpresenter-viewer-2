@@ -15,3 +15,4 @@ Designed for the Electrotechnische Vereeniging.
 - Change settings
 - ~~Automatically update~~
 - ~~Change to Node.js~~
+- Setup GRUNT
