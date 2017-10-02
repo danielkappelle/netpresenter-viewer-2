@@ -1,5 +1,5 @@
 angular.module('netpresenter', [])
-  .controller('NetpresenterController', function($scope, $http, $timeout) {
+  .controller('NetpresenterController', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
     $scope.url = 'http://netpresenter.tudelft.nl/netpresenter/published/ETV_computers/channel/PC/';
     // $scope.url = 'http://netpresenter.tudelft.nl/netpresenter/published/3mE_algemeen/channel/PC/';
     $scope.currentSlide = 0;
@@ -29,4 +29,4 @@ angular.module('netpresenter', [])
 
     update();
 
-  });
+  }]);
