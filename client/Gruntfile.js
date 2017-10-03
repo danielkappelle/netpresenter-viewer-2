@@ -28,7 +28,10 @@ module.exports = function(grunt) {
             build: {
                 files: {
                     'dist/js/all.min.js': [
+                        'bower_components/jquery/dist/jquery.js',
+                        'bower_components/bootstrap/dist/js/bootstrap.js',
                         'bower_components/angular/angular.js',
+                        'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
                         'js/**/*.js',
                     ]
                 }
@@ -42,11 +45,24 @@ module.exports = function(grunt) {
             build: {
                 files: {
                     'dist/css/all.min.css' : [
+                        'bower_components/bootstrap/dist/css/bootstrap.css',
+                        'bower_components/angular-bootstrap/ui-bootstrap-csp.css',
                         'css/**/*.css',
                     ]
                 }
             }
         },
+
+        watch: {
+            stylesheets: {
+                files: ['css/**/*.css'],
+                tasks: ['cssmin']
+            },
+            scripts: {
+                files: 'js/**/*.js',
+                tasks: ['jshint', 'uglify']
+            }
+        }
 
       });
     

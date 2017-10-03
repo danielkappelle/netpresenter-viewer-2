@@ -1,9 +1,20 @@
-angular.module('netpresenter', [])
-  .controller('NetpresenterController', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
+angular.module('netpresenter', ['ui.bootstrap'])
+  .controller('NetpresenterController', ['$scope', '$http', '$timeout', '$uibModal', function($scope, $http, $timeout, $uibModal) {
     $scope.url = 'http://netpresenter.tudelft.nl/netpresenter/published/ETV_computers/channel/PC/';
     // $scope.url = 'http://netpresenter.tudelft.nl/netpresenter/published/3mE_algemeen/channel/PC/';
     $scope.currentSlide = 0;
     $scope.timeOut = 1 * 60 * 60 * 1000; // 1 hour intervals
+
+    $scope.openSettings = function() {
+      console.log('open settings');
+
+      var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: '../settings-modal.html',
+        controller: 'settingsCtrl',
+        size: 'lg'
+      });
+    };
 
     var update = function() {
       $http.get('/slides', {params: {url: $scope.url}})
