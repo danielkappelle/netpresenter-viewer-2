@@ -47,6 +47,7 @@ module.exports = function(grunt) {
                     'dist/css/all.min.css' : [
                         'bower_components/bootstrap/dist/css/bootstrap.css',
                         'bower_components/angular-bootstrap/ui-bootstrap-csp.css',
+                        'bower_components/font-awesome/css/font-awesome.css',
                         'css/**/*.css',
                     ]
                 }
@@ -62,6 +63,15 @@ module.exports = function(grunt) {
                 files: 'js/**/*.js',
                 tasks: ['jshint', 'uglify']
             }
+        },
+
+        copy: {
+            main: {
+                expand: true,
+                src: 'bower_components/font-awesome/fonts/*',
+                dest: 'dist/fonts/',
+                flatten: true
+              }
         }
 
       });
@@ -75,7 +85,8 @@ module.exports = function(grunt) {
       grunt.loadNpmTasks('grunt-contrib-uglify');
       grunt.loadNpmTasks('grunt-contrib-cssmin');
       grunt.loadNpmTasks('grunt-contrib-watch');
+      grunt.loadNpmTasks('grunt-contrib-copy');
 
-      grunt.registerTask('default', ['jshint', 'uglify', 'cssmin']);
+      grunt.registerTask('default', ['jshint', 'uglify', 'cssmin', 'copy']);
     
     };
