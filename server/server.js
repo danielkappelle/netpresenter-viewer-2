@@ -31,6 +31,20 @@ app.get('/slides', function(req, res) {
   }  
 });
 
+app.get('/channels', function(req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  request('http://netpresenter.tudelft.nl/netpresenter/published', function(err, response, body) {
+    var pattern = /HREF="\/netpresenter\/published\/(.*?)\/"/gm;
+    var match;
+    var channels = [];
+    while(match = pattern.exec(body)) {
+      channels.push(match[1]);
+    }
+
+    res.send(JSON.stringify(channels));
+  });
+});
+
 app.listen(3000, function() {
   console.log('Listening on 3000');
 });
