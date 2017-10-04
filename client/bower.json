@@ -18,6 +18,7 @@
     "angular": "^1.6.6",
     "angular-bootstrap": "^2.5.0",
     "bootstrap": "^3.3.7",
-    "font-awesome": "^4.7.0"
+    "font-awesome": "^4.7.0",
+    "angularMultipleSelect": "angular-multiple-select#^1.1.2"
   }
 }

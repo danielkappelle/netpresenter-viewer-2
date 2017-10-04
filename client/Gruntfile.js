@@ -32,6 +32,7 @@ module.exports = function(grunt) {
                         'bower_components/bootstrap/dist/js/bootstrap.js',
                         'bower_components/angular/angular.js',
                         'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+                        'bower_components/angularMultipleSelect/build/multiple-select.js',
                         'js/**/*.js',
                     ]
                 }
@@ -48,6 +49,7 @@ module.exports = function(grunt) {
                         'bower_components/bootstrap/dist/css/bootstrap.css',
                         'bower_components/angular-bootstrap/ui-bootstrap-csp.css',
                         'bower_components/font-awesome/css/font-awesome.css',
+                        'bower_components/angularMultipleSelect/build/multiple-select.css',
                         'css/**/*.css',
                     ]
                 }
@@ -68,7 +70,7 @@ module.exports = function(grunt) {
         copy: {
             main: {
                 expand: true,
-                src: 'bower_components/font-awesome/fonts/*',
+                src: ['bower_components/font-awesome/fonts/*', 'bower_components/bootstrap/fonts/*'],
                 dest: 'dist/fonts/',
                 flatten: true
               }
