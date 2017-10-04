@@ -1,6 +1,7 @@
-angular.module('netpresenter').controller('settingsCtrl', ['$scope', '$uibModalInstance', '$http', function($scope, $uibModalInstance, $http) {
+angular.module('netpresenter').controller('settingsCtrl', ['$scope', '$uibModalInstance', '$http', 'selected', function($scope, $uibModalInstance, $http, selected) {
 
     $scope.optionsList = [];
+    $scope.selectedList = selected;
 
     $scope.ok = function() {
         $uibModalInstance.close($scope.selectedList);

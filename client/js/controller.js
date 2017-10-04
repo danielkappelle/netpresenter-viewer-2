@@ -1,11 +1,10 @@
 angular.module('netpresenter', ['ui.bootstrap', 'multipleSelect'])
   .controller('NetpresenterController', ['$scope', '$http', '$timeout', '$uibModal', function($scope, $http, $timeout, $uibModal) {
-    $scope.url = 'http://netpresenter.tudelft.nl/netpresenter/published/ETV_computers/channel/PC/';
-    // $scope.url = 'http://netpresenter.tudelft.nl/netpresenter/published/3mE_algemeen/channel/PC/';
+    $scope.url = 'http://netpresenter.tudelft.nl/netpresenter/published/';
     $scope.currentSlide = 0;
     $scope.timeOut = 1 * 60 * 60 * 1000; // 1 hour intervals
 
-    $scope.channels = ['ETV_computers'];
+    $scope.channels = ['ETV_computers', '3mE_algemeen'];
 
     $scope.openSettings = function() {
       console.log('open settings');
@@ -14,19 +13,26 @@ angular.module('netpresenter', ['ui.bootstrap', 'multipleSelect'])
         animation: true,
         templateUrl: '../settings-modal.html',
         controller: 'settingsCtrl',
-        size: 'lg'
+        size: 'lg',
+        resolve: {
+          selected: function() {
+              return $scope.channels;
+          }
+       }
       });
 
       modalInstance.result.then(function(result) {
         if(result) {
           $scope.channels = result;
-          console.log($scope.channels);
+          $timeout.cancel(update_timer);
+          update();
         }
       });
     };
 
     var update = function() {
-      $http.get('/slides', {params: {url: $scope.url}})
+      console.log('update start');
+      $http.get('/slides', {params: {channels: JSON.stringify($scope.channels)}})
         .then(function(response) {
           $scope.slides = response.data;
           n_slides = $scope.slides.length;
