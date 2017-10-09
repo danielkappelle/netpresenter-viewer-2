@@ -4,7 +4,8 @@ angular.module('netpresenter', ['ui.bootstrap', 'multipleSelect'])
     $scope.currentSlide = 0;
     $scope.timeOut = 1 * 60 * 60 * 1000; // 1 hour intervals
 
-    $scope.channels = ['ETV_computers', '3mE_algemeen'];
+    /* Default channel */
+    $scope.channels = ['ETV_computers'];
 
     $scope.openSettings = function() {
       console.log('open settings');
@@ -54,5 +55,29 @@ angular.module('netpresenter', ['ui.bootstrap', 'multipleSelect'])
     };
 
     update();
+
+    var mouseTimer = null;
+    $scope.cursorVisible = true;
+
+    function disappearCursor() {
+      mouseTimer = null;
+      document.body.style.cursor = "none";
+      $scope.cursorVisible = false;
+      $scope.$apply();
+    }
+
+    document.onmousemove = function() {
+      if(mouseTimer) {
+        window.clearTimeout(mouseTimer);
+      }
+
+      if(!$scope.cursorVisible) {
+        document.body.style.cursor = "default";
+        $scope.cursorVisible = true;
+        $scope.$apply();
+      }
+
+      mouseTimer = window.setTimeout(disappearCursor, 2000);
+    };
 
   }]);
