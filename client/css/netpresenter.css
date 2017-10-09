@@ -14,6 +14,7 @@ div.fullscreen-img img {
     margin: auto;
     overflow: auto;
     zoom: 10;
+    mouse: none;
 }
 
 div.settings-btn {
