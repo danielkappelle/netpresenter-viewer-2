@@ -15,7 +15,7 @@ Designed for the Electrotechnische Vereeniging.
 
 ## TODO
 - ~~Verify netpresenter URL~~
-- Change settings
+- ~~Change settings~~
 - ~~Automatically update~~
 - ~~Change to Node.js~~
 - ~~Setup GRUNT~~
