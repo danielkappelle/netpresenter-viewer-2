@@ -21,7 +21,7 @@
       ref  : "origin/master",
       repo : "git@github.com:danielkappelle/netpresenter-viewer-2.git",
       path : "/var/www/netpresenter/",
-      "post-deploy" : "npm install && NODE_ENV=production pm2 startOrRestart ecosystem.json --env production",
+      "post-deploy" : "npm install && cd client && npm install && bower install --force-latest && grunt && cd .. && NODE_ENV=production pm2 startOrRestart production.json --env production",
       env  : {
         NODE_ENV: "production"
       }
