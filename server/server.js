@@ -6,6 +6,12 @@ const request = require('request');
 
 app.use(express.static(path.join(__dirname, '../client')));
 
+if(typeof(process.env.NODE_PORT) !== 'undefined') {
+  port = process.env.NODE_PORT;
+} else {
+  port = 3000; // Default port
+}
+
 
 app.get('/slides', function(req, res) {
   res.setHeader('Content-Type', 'application/json');
@@ -51,8 +57,8 @@ app.get('/channels', function(req, res) {
   });
 });
 
-app.listen(3000, function() {
-  console.log('Listening on 3000');
+app.listen(port, function() {
+  console.log('Listening on ' + port);
 });
 
 app.enable('trust proxy');

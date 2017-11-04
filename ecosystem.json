@@ -1,0 +1,30 @@
+{
+  /**
+   * Deployment section
+   * http://pm2.keymetrics.io/docs/usage/deployment/
+   */
+  deploy : {
+    development : {
+      user : "node_deploy",
+      host : "10.0.0.10",
+      ref  : "origin/development",
+      repo : "git@github.com:danielkappelle/netpresenter-viewer-2.git",
+      path : "/var/www/netpresenter-dev",
+      "post-deploy" : "npm install && cd client && npm install && bower install --force-latest && grunt && cd .. && NODE_ENV=development pm2 startOrRestart development.json --env development",
+      env  : {
+        NODE_ENV: "development"
+      }
+    },
+    production : {
+      user : "node_deploy",
+      host : "10.0.0.10",
+      ref  : "origin/master",
+      repo : "git@github.com:danielkappelle/netpresenter-viewer-2.git",
+      path : "/var/www/netpresenter/",
+      "post-deploy" : "npm install && NODE_ENV=production pm2 startOrRestart ecosystem.json --env production",
+      env  : {
+        NODE_ENV: "production"
+      }
+    }
+  }
+}
