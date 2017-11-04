@@ -2,7 +2,7 @@
 ### Webviewer for Netpresenter
 Designed for the Electrotechnische Vereeniging.
 
-## Setup
+## Setup (local/testing)
 - Clone repo `$ git clone https://github.com/danielkappelle/netpresenter-viewer-2`
 - Install node packages (inside root directory) `$ npm install`
 - Install bower packages (in `/client`)
@@ -12,6 +12,13 @@ Designed for the Electrotechnische Vereeniging.
 - (If you don't have grunt-cli installed) `# install -g grunt-cli`
 - Run grunt (in `/client`) `$ grunt`
 - Run server (from root directory) `$ node server/server.js`
+
+## Deployment
+- Install PM2 locally and on remote
+- Edit `ecosystem.json` to match the host, user, path, etc
+- Make sure everything is commited and pushed
+- (first time only: `$ pm2 deploy development|production setup`)
+- Deploy: `$ pm2 deploy development|production`
 
 ## TODO
 - ~~Verify netpresenter URL~~
