@@ -9,7 +9,7 @@
   <div ng-controller="NetpresenterController">
     <div ng-repeat="slide in slides track by $index">
       <div class="fullscreen-img" ng-show="currentSlide == $index">
-        <img src="{{url}}{{slide.channel}}/channel/pc/{{slide.href}}"></img>
+        <img ng-src="{{url}}{{slide.channel}}/channel/pc/{{slide.href}}"></img>
       </div>
     </div>
     <div class="settings-btn" ng-click="openSettings()" ng-show="cursorVisible">
